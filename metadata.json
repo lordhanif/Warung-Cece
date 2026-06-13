@@ -1,0 +1,10 @@
+{
+  "name": "Warung Cece Surabaya",
+  "description": "Modern responsive website for Warung Cece Surabaya, the hidden gem for Penyetan dan Tempong in Surabaya. Authentic Indonesian food with fresh sambal.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

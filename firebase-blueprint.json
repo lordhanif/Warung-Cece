@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Admin or Staff user for the dashboard",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["SuperAdmin", "StaffAdmin"] },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["email", "role", "createdAt", "updatedAt"]
+    },
+    "Menu": {
+      "title": "Menu",
+      "description": "Menu items for Warung Cece",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "spicyLevel": { "type": "number" },
+        "stock": { "type": "number" },
+        "image": { "type": "string" },
+        "category": { "type": "string" },
+        "isAvailable": { "type": "boolean" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["name", "price", "createdAt", "updatedAt"]
+    },
+    "Promo": {
+      "title": "Promo",
+      "description": "Promotional campaigns",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "discountType": { "type": "string" },
+        "discountValue": { "type": "number" },
+        "startDate": { "type": "number" },
+        "endDate": { "type": "number" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["title", "discountValue", "isActive", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Stores user roles and profiles"
+    },
+    "/menus/{menuId}": {
+      "schema": { "$ref": "#/entities/Menu" },
+      "description": "Stores all menu items"
+    },
+    "/promos/{promoId}": {
+      "schema": { "$ref": "#/entities/Promo" },
+      "description": "Stores active and past promotions"
+    }
+  }
+}
